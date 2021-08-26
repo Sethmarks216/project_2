@@ -1,11 +1,14 @@
 // import models
 const User = require('./user');
 const Dog = require('./dog');
+const Image = require('./image');
 
 // dogs belongsTo user
-dog.belongsTo(user);
+Dog.belongsTo(User);
+Image.belongsTo(Dog)
 // Categories have many dogs
-user.hasMany(dog);
+User.hasMany(Dog);
+User.hasMany(Image);
 
 // // dogs belongToMany Tags (through dogTag)
 // dog.belongsToMany(Tag, { through: dogTag});
@@ -14,6 +17,7 @@ user.hasMany(dog);
 // Tag.belongsToMany(dog, {through: dogTag});
 
 module.exports = {
-  dog,
-  user,
+  Dog,
+  User,
+  Image,
 };
