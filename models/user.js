@@ -17,14 +17,15 @@ User.init(
       allowNull: false
     },
 
-    Dog_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: "Dog",
-          key: "id",
-        },
+    // Dog_id: {
+    //     type: DataTypes.INTEGER,
+    //     references: {
+    //       model: 'Dog',
+    //       key: 'id'
+    //     }
+
     
-    }
+    // }
     // define columns
   },
   {
