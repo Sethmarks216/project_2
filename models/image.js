@@ -14,7 +14,9 @@ Image.init(
     },
     Image_name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true,
+      defaultValue: 'image'
+      
     },
     data: {
         type: DataTypes.BLOB,

@@ -19,8 +19,14 @@ Dog.init(
     Dog_breed: {
         type: DataTypes.STRING,
         allowNull: false
+      },
+    User_id: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'User',
+          key: 'id'
+        }
       }
-
     // define columns
   },
   {
