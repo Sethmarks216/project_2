@@ -8,7 +8,7 @@ Dog.belongsTo(User);
 Image.belongsTo(Dog)
 // Categories have many dogs
 User.hasMany(Dog);
-User.hasMany(Image);
+User.hasMany(Image, {through: Dog});
 
 // // dogs belongToMany Tags (through dogTag)
 // dog.belongsToMany(Tag, { through: dogTag});
