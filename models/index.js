@@ -1,20 +1,38 @@
 // import models
 const User = require('./user');
+// User Model has a username, Id, and password.
+
 const Dog = require('./dog');
+// Dog model has a dogname, Id, breed, and references a user Id.
+
 const Image = require('./image');
+// Image model has an imagename, Id, data, text content, and references a dog.
 
-// dogs belongsTo user
-Dog.belongsTo(User);
-Image.belongsTo(Dog)
-// Categories have many dogs
-User.hasMany(Dog);
-User.hasMany(Image, {through: Dog});
 
-// // dogs belongToMany Tags (through dogTag)
-// dog.belongsToMany(Tag, { through: dogTag});
+//create associations
+User.hasMany(Dog, {
+  foreignKey: 'user_id'
+});
 
-// // Tags belongToMany dogs (through dogTag)
-// Tag.belongsToMany(dog, {through: dogTag});
+Dog.belongsTo(User, {
+  foreignKey: 'user_id',
+});
+
+Image.belongsTo(Dog, {
+  foreignKey: 'dog_id'
+});
+
+Image.belongsTo(User, {
+  foreignKey: 'user_id'
+});
+
+User.hasMany(Image, {
+  foreignKey: 'user_id'
+});
+
+Dog.hasMany(Image, {
+  foreignKey: 'dog_id'
+});
 
 module.exports = {
   Dog,

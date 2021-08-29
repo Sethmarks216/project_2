@@ -12,24 +12,36 @@ Image.init(
       primaryKey: true,
       autoIncrement: true
     },
-    Image_name: {
+    image_name: {
       type: DataTypes.STRING,
       allowNull: true,
       defaultValue: 'image'
       
     },
+    image_content: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+      validate: { len: [1] },
+
+    },
     data: {
         type: DataTypes.BLOB,
         allowNull: false
     },
-    Dog_id: {
+    dog_id: {
         type: DataTypes.INTEGER,
         references: {
           model: 'Dog',
           key: 'id'
         }
-
-    },// define columns
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'User',
+        key: 'id'
+      }
+    },
   },
   {
     sequelize,
