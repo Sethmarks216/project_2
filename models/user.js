@@ -20,7 +20,7 @@ User.init(
       primaryKey: true,
       autoIncrement: true
     },
-    User_name: {
+    username: {
       type: DataTypes.STRING,
       allowNull: false,
       //adding this to make sure we don't have people register with duplicate usernames
@@ -33,30 +33,20 @@ User.init(
         len: [5]
       }
     }
-    // Dog_id: {
-    //     type: DataTypes.INTEGER,
-    //     references: {
-    //       model: 'Dog',
-    //       key: 'id'
-    //     }
-
-    
-    // }
-    // define columns
   },
   {
-     hooks: {
-   // set up beforeCreate "hook" functionality
-  async beforeCreate(newUserData) {
-    newUserData.password = await bcrypt.hash(newUserData.password, 10);
-    return newUserData;
-    },
-    // set up beforeUpdate "hook" functionality
-  async beforeUpdate(updatedUserData) {
-    updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-    return updatedUserData;
+    hooks: {
+      // set up beforeCreate "hook" functionality
+      async beforeCreate(newUserData) {
+        newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        return newUserData;
+        },
+        // set up beforeUpdate "hook" functionality
+      async beforeUpdate(updatedUserData) {
+        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+        return updatedUserData;
   }
-},
+  },
     sequelize,
     timestamps: false,
     freezeTableName: true,

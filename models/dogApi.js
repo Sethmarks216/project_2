@@ -2,9 +2,9 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection.js');
 
-class Dog extends Model {}
+class dogApi extends Model {}
 
-Dog.init(
+dogApi.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -12,25 +12,25 @@ Dog.init(
       primaryKey: true,
       autoIncrement: true
     },
-    dog_name: {
-      type: DataTypes.STRING,
-      allowNull: false
+    data: {
+        type: DataTypes.BLOB,
     },
-    dog_breed: {
+    breed_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: false,
+    },
+    img_id: {
         type: DataTypes.STRING,
         allowNull: false,
-        references: {
-          model: 'dogApi',
-          key: 'breed_id'
-        }
       },
-    user_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'User',
-          key: 'id'
-        }
-      }
+    // user_id: {
+    //     type: DataTypes.INTEGER,
+    //     references: {
+    //       model: 'User',
+    //       key: 'id'
+    //     }
+    //   }
     // define columns
   },
   {
