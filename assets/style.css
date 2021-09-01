@@ -33,8 +33,9 @@ body {
     background-color: #b36868;
 }
 
-div {
-    margin: 20px 0px 100px 10px;
+.pup-custom-input {
+    width: 230px;
+    overflow: hidden;
 }
 
 .hidden {
