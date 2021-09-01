@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 
+
 const sequelize = require('../config/connection.js');
 
 class Image extends Model {}
@@ -16,7 +17,6 @@ Image.init(
       type: DataTypes.STRING,
       allowNull: true,
       defaultValue: 'image'
-      
     },
     image_content: {
       type: DataTypes.TEXT,
@@ -25,8 +25,8 @@ Image.init(
 
     },
     data: {
-        type: DataTypes.BLOB,
-        allowNull: false
+        type: DataTypes.BLOB("long"),
+        allowNull: false,
     },
     dog_id: {
         type: DataTypes.INTEGER,

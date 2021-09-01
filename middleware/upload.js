@@ -2,6 +2,8 @@
 
 const multer = require("multer");
 
+var maxSize = 1000000000
+
 const imageFilter = (req, file, cb) => {
   if (file.mimetype.startsWith("image")) {
     cb(null, true);
@@ -17,8 +19,11 @@ var storage = multer.diskStorage({
   filename: (req, file, cb) => {
     cb(null, `${Date.now()}-bezkoder-${file.originalname}`);
   },
+  
 });
 
-var uploadFile = multer({ storage: storage, fileFilter: imageFilter });
+var uploadFile = multer({ storage: storage, fileFilter: imageFilter, limits: { fileSize: maxSize } }
+  
+);
 
 module.exports = uploadFile;
