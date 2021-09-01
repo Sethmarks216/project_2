@@ -19,10 +19,10 @@ Dog.init(
     dog_breed: {
         type: DataTypes.STRING,
         allowNull: false,
-        references: {
-          model: 'dogApi',
-          key: 'breed_id'
-        }
+        // references: {
+        //   model: 'dogApi',
+        //   key: 'breed_id'
+        // }
       },
     user_id: {
         type: DataTypes.INTEGER,

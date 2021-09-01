@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Dog, Image , User } = require('../models');
+const { Dog, Image , User, Comment } = require('../models');
 
 // Render the home page
 router.get('/', (req, res) => {
@@ -29,8 +29,16 @@ router.get('/', (req, res) => {
               attributes: ['id', 'dog_name', 'dog_breed', 'user_id'],
               include: {
                   model: User,
-                  attributes: ['username']
+                  attributes: ['id', 'username']
               }
+          },
+          {
+            model: Comment,
+            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+            include: {
+              model: User,
+              attributes: ['id', 'username']
+            },
           }
       ]
   })
@@ -70,16 +78,24 @@ router.get('/Image/:id', (req, res) => {
     include: [
       {
         model: User,
-        attributes: ['username']
+        attributes: ['id', 'username']
       },
       {
         model: Dog,
         attributes: ['id', 'dog_name', 'dog_breed', 'user_id'],
         include: {
             model: User,
-            attributes: ['username']
+            attributes: ['id', 'username']
         }
-      }
+      },
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['id', 'username']
+        }
+      },
     ]
   })
     .then(dbImageData => {
