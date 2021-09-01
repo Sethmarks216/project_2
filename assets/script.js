@@ -40,3 +40,16 @@ $('.tab a').on('click', function(e) {
     $(target).fadeIn(600);
 
 });
+
+$('#submit').on('click', function(e) {
+
+    e.preventDefault();
+
+    var containertwo = $("#step_2");
+    containertwo.removeClass("hidden");
+
+    var containerone = $("#step_1");
+    containerone.addClass("hidden");
+
+
+});
