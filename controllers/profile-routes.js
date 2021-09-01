@@ -71,12 +71,12 @@ router.get('/', withAuth, (req, res) => {
           attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
           include: {
             model: User,
-            attributes: ['username', 'twitter', 'github']
+            attributes: ['id', 'username', 'password']
           }
         },
         {
           model: User,
-          attributes: ['username', 'twitter', 'github']
+          attributes: ['id', 'username', 'password']
         }
       ]
     })
@@ -94,6 +94,7 @@ router.get('/', withAuth, (req, res) => {
             loggedIn: true
             });
       })
+      // need to change this if we add new model
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -101,29 +102,29 @@ router.get('/', withAuth, (req, res) => {
 });
 
 router.get('/create/', withAuth, (req, res) => {
-    Post.findAll({
+    Image.findAll({
       where: {
         // use the ID from the session
         user_id: req.session.user_id
       },
       attributes: [
         'id',
-        'title',
-        'created_at',
-        'post_content'
+        'image_name',
+        'image_content',
+        'data'
       ],
       include: [
         {
-          model: Comment,
-          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+          model: Dog,
+          attributes: ['id', 'dog_name', 'dog_breed', 'user_id'],
           include: {
             model: User,
-            attributes: ['username', 'twitter', 'github']
+            attributes: ['id', 'username',]
           }
         },
         {
           model: User,
-          attributes: ['username', 'twitter', 'github']
+          attributes: ['id', 'username',]
         }
       ]
     })

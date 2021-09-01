@@ -24,9 +24,9 @@ Image.init(
       validate: { len: [1] },
 
     },
-    data: {
-        type: DataTypes.BLOB("long"),
-        allowNull: false,
+    image_url: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
     dog_id: {
         type: DataTypes.INTEGER,
@@ -42,6 +42,13 @@ Image.init(
         key: 'id'
       }
     },
+    post_id: {
+      type: DataTypes.INTEGER,
+      references: {
+          model: 'post',
+          key: 'id'
+      }
+  }
   },
   {
     sequelize,

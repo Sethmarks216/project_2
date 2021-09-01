@@ -8,6 +8,7 @@ const Dog = require('./dog');
 const Image = require('./image');
 // Image model has an imagename, Id, data, text content, and references a dog.
 
+const Comment = require('./comment')
 
 //create associations
 User.hasMany(Dog, {
