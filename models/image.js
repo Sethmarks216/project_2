@@ -42,17 +42,17 @@ Image.init(
         key: 'id'
       }
     },
-    post_id: {
+    image_id: {
       type: DataTypes.INTEGER,
       references: {
-          model: 'post',
+          model: 'image',
           key: 'id'
       }
   }
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: 'Image',
