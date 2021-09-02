@@ -40,13 +40,13 @@ Image.init(
         key: 'id'
       }
     },
-  //   post_id: {
-  //     type: DataTypes.INTEGER,
-  //     references: {
-  //         model: 'post',
-  //         key: 'id'
-  //     }
-  // }
+    image_id: {
+      type: DataTypes.INTEGER,
+      references: {
+          model: 'image',
+          key: 'id'
+      }
+  }
   },
   {
     sequelize,

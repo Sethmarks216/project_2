@@ -35,8 +35,22 @@ Dog.hasMany(Image, {
   foreignKey: 'dog_id'
 });
 
+Image.hasMany(Comment, {
+  foreignKey: 'image_id'
+});
+
+Comment.belongsTo(Image, {
+  foreignKey: 'image_id'
+});
+
+Comment.belongsTo(User, {
+  foreignKey: 'user_id'
+});
+
+
 module.exports = {
   Dog,
   User,
   Image,
+  Comment
 };
