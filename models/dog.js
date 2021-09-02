@@ -24,6 +24,14 @@ Dog.init(
         //   key: 'breed_id'
         // }
       },
+    // breed_content: {
+    //   type: DataTypes.STRING,
+    //   allowNull: true,
+    //   references: {
+    //     model: 'dogApi',
+    //     key: 'breed_id'
+    //   }
+    // },
     user_id: {
         type: DataTypes.INTEGER,
         references: {
