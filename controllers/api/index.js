@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const dogRoutes = require ('./dog-routes')
 const userRoutes = require ('./user-routes')
-const userRoutes = require ('./image-routes')
-const userRoutes = require ('./comment-routes')
+const imageRoutes = require ('./image-routes')
+const commentRoutes = require ('./comment-routes')
 
 router.use('/dog', dogRoutes)
 router.use('/user', userRoutes)

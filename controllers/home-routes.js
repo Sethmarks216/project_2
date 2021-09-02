@@ -11,8 +11,7 @@ router.get('/', (req, res) => {
           'id',
           'image_name',
           'image_content',
-          'data',
-          'dog_id',
+          'image_url',
           'created_at',
         ],
       // Order the posts from most recent to least
@@ -34,7 +33,7 @@ router.get('/', (req, res) => {
           },
           {
             model: Comment,
-            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+            attributes: ['id', 'comment_text', 'image_id', 'user_id', 'created_at'],
             include: {
               model: User,
               attributes: ['id', 'username']
@@ -43,9 +42,9 @@ router.get('/', (req, res) => {
       ]
   })
   // render the posts
-  .then(dbImageData => {
-    // create an array for the images, using the get method to trim extra sequelize object data out
-    const images = dbImageData.map(Image => Image.get({ plain: true }));
+  .then(dbImageimage_url => {
+    // create an array for the images, using the get method to trim extra sequelize object image_url out
+    const images = dbImageimage_url.map(Image => Image.get({ plain: true }));
     // pass the images into the homepage template
     res.render('homepage', {
       images,
@@ -71,7 +70,7 @@ router.get('/Image/:id', (req, res) => {
       'id',
       'image_name',
       'image_content',
-      'data',
+      'image_url',
       'dog_id',
       'created_at',
     ],
@@ -90,7 +89,7 @@ router.get('/Image/:id', (req, res) => {
       },
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        attributes: ['id', 'comment_text', 'image_id', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['id', 'username']
@@ -98,14 +97,14 @@ router.get('/Image/:id', (req, res) => {
       },
     ]
   })
-    .then(dbImageData => {
+    .then(dbImageimage_url => {
       // if no post by that id exists, return an error
-      if (!dbImageData) {
+      if (!dbImageimage_url) {
         res.status(404).json({ message: 'No post found with this id' });
         return;
       }
-      // serialize the post data, removing extra sequelize meta data
-      const image = dbImageData.get({ plain: true });
+      // serialize the post image_url, removing extra sequelize meta image_url
+      const image = dbImageimage_url.get({ plain: true });
       // pass the posts and a session variable into the single post template
       res.render('single-image', {
           image,
