@@ -15,15 +15,23 @@
 
 <body>
     <header class="jumbotron">
+      
+      <a href="/">
         <img src="assets/project_2logo.jpg" width="275" height="auto" style="object-fit:cover;
         object-position: right;
         opacity: .90;
        width:auto;
        height:300px;
-       border: solid 3px rgb(0, 0, 0)" ;>
-        <h1 class="display-3">Puparazzi </h1>
+       border: solid 3px rgb(0, 0, 0)" ;></a>
+        <h1 href="/" class="display-3">Puparazzi </h1>
         <p class="lead">Share your pictures of your four legged best friend</p>
-        <h3 id="date"></h3>
+        {{!-- <h3 id="date"></h3> --}}
+        {{!-- <a href="/" id="home">Home</a> --}}
+      {{#if loggedIn}}
+      <a id="logout" class="btn">Logout</a>
+      {{else}}
+      
+    {{/if}}
     </header>
         <main>
           {{{ body }}}
@@ -32,5 +40,6 @@
 
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
+ <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   {{/if}}
 </html>

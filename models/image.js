@@ -13,11 +13,6 @@ Image.init(
       primaryKey: true,
       autoIncrement: true
     },
-    image_name: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      defaultValue: 'image'
-    },
     image_content: {
       type: DataTypes.TEXT,
       allowNull: true,
@@ -40,13 +35,7 @@ Image.init(
         key: 'id'
       }
     },
-    image_id: {
-      type: DataTypes.INTEGER,
-      references: {
-          model: 'image',
-          key: 'id'
-      }
-  }
+    
   },
   {
     sequelize,

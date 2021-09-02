@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, User, Comment, Dog } = require('../../models');
+const { Image, User, Comment, Dog } = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
@@ -9,10 +9,8 @@ router.get('/', (req, res) => {
     Image.findAll({
         attributes: [
             'id',
-            'image_name',
             'image_content',
-            'data',
-            'dog_id',
+            'image_url',
             'created_at'
         ],
       order: [['created_at', 'DESC']],
@@ -50,10 +48,8 @@ router.get('/', (req, res) => {
       },
       attributes: [
         'id',
-        'image_name',
         'image_content',
-        'data',
-        'dog_id',
+        'image_url',
         'created_at'
       ],
       include: [
@@ -85,12 +81,12 @@ router.get('/', (req, res) => {
       });
   });
 
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
     Image.create({
-      image_name: req.body.image_name,
       image_content: req.body.image_content,
       image_url: req.body.image_url,
-      dog_id: req.session.dog_id
+      user_id: req.session.user_id,
+      dog_id: 1
     })
       .then(dbPostData => res.json(dbPostData))
       .catch(err => {
@@ -99,9 +95,8 @@ router.post('/', withAuth, (req, res) => {
       });
 });
 
-router.put('/:id', withAuth, (req, res) => {
+router.put('/:id', (req, res) => {
     Image.update({
-        image_name: req.body.image_name,
         image_content: req.body.image_content,
         image_url: req.body.image_url,
       },
@@ -123,7 +118,7 @@ router.put('/:id', withAuth, (req, res) => {
       });
   });
 
-  router.delete('/:id', withAuth, (req, res) => {
+  router.delete('/:id', (req, res) => {
     Image.destroy({
       where: {
         id: req.params.id

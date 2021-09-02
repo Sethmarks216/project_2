@@ -3,11 +3,11 @@ const sequelize = require('../config/connection');
 const { Dog, Image , User } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
     User.findAll({
       where: {
         // use the ID from the session
-        user_id: req.session.user_id
+        id: req.session.user_id
       },
       attributes: [
         'id',
@@ -22,10 +22,8 @@ router.get('/', withAuth, (req, res) => {
             model: Image,
             attributes: [    
             'id',
-            'image_name',
             'image_content',
-            'data',
-            'dog_id',
+            'image_url',
             'created_at'
             ]
           }
@@ -34,10 +32,8 @@ router.get('/', withAuth, (req, res) => {
           model: Image,
           attributes: [
             'id',
-            'image_name',
             'image_content',
-            'data',
-            'dog_id',
+            'image_url',
             'created_at'
           ]
         }
@@ -54,7 +50,7 @@ router.get('/', withAuth, (req, res) => {
       });
   });
 
-  router.get('/edit/:id', withAuth, (req, res) => {
+  router.get('/edit/:id', (req, res) => {
     Dog.findOne({
       where: {
         id: req.params.id
@@ -63,7 +59,6 @@ router.get('/', withAuth, (req, res) => {
         'id',
         'dog_name',
         'dog_breed',
-        'user_id',
       ],
       include: [
         {
@@ -101,7 +96,7 @@ router.get('/', withAuth, (req, res) => {
       });
 });
 
-router.get('/create/', withAuth, (req, res) => {
+router.get('/create/', (req, res) => {
     Image.findAll({
       where: {
         // use the ID from the session
@@ -109,9 +104,8 @@ router.get('/create/', withAuth, (req, res) => {
       },
       attributes: [
         'id',
-        'image_name',
         'image_content',
-        'data'
+        'image_url',
       ],
       include: [
         {

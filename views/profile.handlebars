@@ -1,1 +1,59 @@
-<script src="/javascript/add-post.js"></script>
+
+  <div class="container" id="step_1">
+        <header>
+            <h2>submit your dog</h2>
+        </header>
+        <div class="row">
+            <div class="col-12 col-md-6 col-xl-3">
+
+                <input type="text" name="dog_name" id="dog_name" placeholder="Enter your dog's name">
+            </div>
+            <div class="col-12 col-md-6 col-xl-3 mt-2 mt-xl-0">
+                <input type="text" name="dog_info" id="dog_info" placeholder="Tell us about your pup">
+            </div>
+              <div class="col-12 col-md-6 col-xl-3 mt-2 mt-xl-0">
+                <input class="pup-custom-input" type="file" name="picture" id="picture">
+            </div>
+            <div class="col-12 col-md-6 col-xl-3 mt-2 mt-xl-0">
+                <select name="breed" id="breed">
+                    <option value="select a breed">Breed</option>
+                    <option value="english_bulldog">English Bulldog</option>
+                    <option value="American_Pit_Bull_Terrier">American Pit Bull Terrier</option>
+                    <option value="golden_doodle">Golden-Doodle</option>
+                    <option value="labrador">Labrador</option>
+                    <option value="maltese">Maltese</option>
+                    <option value="Westie">Westie</option>
+                </select>
+            </div>
+            
+        </div>
+        <div class="row mt-2">
+            <div class="col-12">
+                <button id="submit">Submit</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container hidden" id="step_2">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <h2>Name</h2>
+            </div>
+            <div class="col-12 col-md-6">
+                <h2><img src="assets/Dany.jpg" width="275" height="auto" style="object-fit:cover;
+                    object-position: left;
+                    opacity: 1;
+                   width:auto;
+                   height:300px;
+                   border: solid 3px rgb(0, 0, 0)" ;></h2>
+            </div>
+
+        </div>
+
+
+
+
+
+<script src="/javascript/imageUpload.js"></script>
+<script src="/javascript/createDogPost.js"></script>

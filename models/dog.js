@@ -35,7 +35,7 @@ Dog.init(
     user_id: {
         type: DataTypes.INTEGER,
         references: {
-          model: 'User',
+          model: 'user',
           key: 'id'
         }
       }
@@ -43,7 +43,7 @@ Dog.init(
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: 'dog',

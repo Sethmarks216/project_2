@@ -5,13 +5,13 @@ const exphbs = require('express-handlebars');
 
 const sequelize = require('./config/connection');
 const session = require('express-session');
-const initRoutes = require("./controllers/web");
+
 const path = require('path');
 const routes = require('./controllers/');
 const helpers = require('./utils/helper');
 const hbs = exphbs.create({ helpers });
 
-const app = express();
+
 const PORT = process.env.PORT || 3002;
 // global.__basedir = __dirname;
 
