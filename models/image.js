@@ -21,8 +21,6 @@ Image.init(
     image_content: {
       type: DataTypes.TEXT,
       allowNull: true,
-      validate: { len: [1] },
-
     },
     image_url: {
         type: DataTypes.STRING,
@@ -42,17 +40,17 @@ Image.init(
         key: 'id'
       }
     },
-    post_id: {
-      type: DataTypes.INTEGER,
-      references: {
-          model: 'post',
-          key: 'id'
-      }
-  }
+  //   post_id: {
+  //     type: DataTypes.INTEGER,
+  //     references: {
+  //         model: 'post',
+  //         key: 'id'
+  //     }
+  // }
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: 'Image',

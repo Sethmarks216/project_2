@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Dog, Image , User, Comment } = require('../models');
+const { Dog, Image , User,  } = require('../models');
 
 // Render the home page
 router.get('/', (req, res) => {
@@ -11,8 +11,6 @@ router.get('/', (req, res) => {
           'id',
           'image_name',
           'image_content',
-          'data',
-          'dog_id',
           'created_at',
         ],
       // Order the posts from most recent to least
@@ -32,14 +30,14 @@ router.get('/', (req, res) => {
                   attributes: ['id', 'username']
               }
           },
-          {
-            model: Comment,
-            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-            include: {
-              model: User,
-              attributes: ['id', 'username']
-            },
-          }
+          // {
+          //   // model: Comment,
+          //   // attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+          //   // include: {
+          //   //   model: User,
+          //   //   attributes: ['id', 'username']
+          //   // },
+          // }
       ]
   })
   // render the posts
@@ -57,6 +55,7 @@ router.get('/', (req, res) => {
       console.log(err);
       res.status(500).json(err);
   });
+  // res.render('homepage')
 });
 
 // Render the single image post page
