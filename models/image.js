@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 
+
 const sequelize = require('../config/connection.js');
 
 class Image extends Model {}
@@ -16,7 +17,6 @@ Image.init(
       type: DataTypes.STRING,
       allowNull: true,
       defaultValue: 'image'
-      
     },
     image_content: {
       type: DataTypes.TEXT,

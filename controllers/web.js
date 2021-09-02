@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const homeController = require("./home");
+const homeController = require("./imagehome");
 const uploadController = require("./upload");
 const upload = require("../middleware/upload");
 
