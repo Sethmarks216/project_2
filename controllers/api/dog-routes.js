@@ -30,11 +30,16 @@ router.get('/:id', (req, res) => {
   });
 });
 
-router.post('/:id', (req, res) => {
-    db.Dog.create(req.body).then(dbDog => {
+router.post('/', (req, res) => {
+    db.Dog.create({
+    dog_name: req.body.dog_name,
+    dog_breed: req.body.dog_breed,
+    user_id: req.session.user_id
+  })
+    .then(dbDog => {
         db.User.update({dogId: dbDog.id}, {
             where: {
-              id: req.session.userID
+              id: req.session.user_id
             }
           }).then(dbUser => {
             res.json(dbUser);

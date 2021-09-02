@@ -1,6 +1,25 @@
+
+
+
 <ol class="post-list">
-  {{#each image as |image|}}
-  <li>
+{{#if loggedIn}} 
+<a href="/profile" id = "upload">Upload New Puppy Pic!</a>
+{{ else }}
+ <a href="/login" id = "login">Login</a>
+{{/if}}
+
+  {{#each images as |image|}}
+  <li class = "puppy_image">
+      <img src={{image_url}}>
+          
+     </img>
+     <p class = "name">Name: {{dog.dog_name}} </p>
+
+     <p>
+       Breed: {{dog.dog_breed}}
+     </p>
+
+       {{image_content}}</p>
     {{!-- {{> post-info post }} --}}
   </li>
   {{/each}}

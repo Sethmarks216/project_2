@@ -9,7 +9,6 @@ router.get('/', (req, res) => {
       // From the Post table, include the post ID, URL, title, and the timestamp from post creation
       attributes: [
           'id',
-          'image_name',
           'image_content',
           'image_url',
           'created_at',
@@ -56,6 +55,7 @@ router.get('/', (req, res) => {
       console.log(err);
       res.status(500).json(err);
   });
+  // res.render('homepage')
 });
 
 // Render the single image post page
@@ -68,7 +68,6 @@ router.get('/Image/:id', (req, res) => {
     // Query configuration, as with the get all posts route
     attributes: [
       'id',
-      'image_name',
       'image_content',
       'image_url',
       'dog_id',
