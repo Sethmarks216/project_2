@@ -9,6 +9,30 @@ head {
     border-radius: 0;
     border-bottom: 10px solid black;
 }
+.card-header {
+    height: 50px;
+     background-color: #773c3c;
+}
+
+.card-body .text {
+    font-size: 30px;
+}
+
+.comment-body {
+    height: 200px;
+    width: 35%;
+    background-color: #773c3c;
+    border-style: none;
+}
+
+.comment-body:focus {
+
+background-color: #dacbcb;
+}
+
+.comment-title {
+    font-size: 40px;
+}
 
 p {
     background-color: #b36868;
@@ -33,13 +57,36 @@ body {
     background-color: #b36868;
 }
 
-#login, #logout, #upload{
+#login, #logout, #upload, #Add_Comment{
     text-decoration: none;
     font-size: 35px;
     color: #000000;
     background-color: #7e3333;
     padding: 5px 10px;
     border-radius: 5px;
+}
+
+#Add_Comment, .login-please{
+    text-decoration: none;
+    font-size: 35px;
+    color: #000000;
+    background-color: #7e3333;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border-style: none;
+    margin-bottom: 25px;
+    margin-top: 10px;
+}
+
+.login-please:hover{
+    text-decoration: none;
+    font-size: 35px;
+    color: #000000;
+    background-color: #7e3333;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border-style: none;
+
 }
 
 #login:hover{

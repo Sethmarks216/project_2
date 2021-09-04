@@ -3,7 +3,9 @@ const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
-    Comment.findAll({})
+    Comment.findAll({ where: {
+      id: req.params.id
+    }})
       .then(dbCommentData => res.json(dbCommentData))
       .catch(err => {
         console.log(err);
@@ -16,9 +18,9 @@ router.post('/', (req, res) => {
   if (req.session) {
     Comment.create({
       comment_text: req.body.comment_text,
-      image_text: req.body.image_id,
       // use the id from the session
       user_id: req.session.user_id,
+      image_id: req.body.image_id
     })
       .then(dbCommentData => res.json(dbCommentData))
       .catch(err => {
