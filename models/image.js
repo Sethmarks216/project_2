@@ -21,13 +21,13 @@ Image.init(
         type: DataTypes.STRING,
         allowNull: false
     },
-    dog_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'Dog',
-          key: 'id'
-        }
-    },
+    // dog_id: {
+    //     type: DataTypes.INTEGER,
+    //     references: {
+    //       model: 'Dog',
+    //       key: 'id'
+    //     }
+    // },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
