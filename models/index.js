@@ -19,10 +19,6 @@ Dog.belongsTo(User, {
   foreignKey: 'user_id',
 });
 
-Dog.belongsTo(Image, {
-  foreignKey: 'image_id',
-});
-
 Image.belongsTo(Dog, {
   foreignKey: 'dog_id'
 });
