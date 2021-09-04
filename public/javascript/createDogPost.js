@@ -21,10 +21,10 @@ async function createDogPost(event) {
   })
   
   if (response.ok) {
-    document.location.replace('/');
+    
   } else {
     alert(response.statusText);
   }
 }
 
-submit.addEventListener('click', createDogPost)
+// submit.addEventListener('click', createDogPost)

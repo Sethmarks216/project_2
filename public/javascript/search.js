@@ -1,7 +1,7 @@
 async function searchPup(event) {
   event.preventDefault();
 
-    const dogType = document.querySelector('#dogSearch').value;
+    const dogType = document.querySelector('#breed').value;
 
     const response = await fetch(`/api/dog/${dogType}`, {
     method: 'get',

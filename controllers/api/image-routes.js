@@ -11,6 +11,8 @@ router.get('/', (req, res) => {
             'id',
             'image_content',
             'image_url',
+            'dog_name',
+            'dog_breed',
             'created_at'
         ],
       order: [['created_at', 'DESC']],
@@ -28,10 +30,10 @@ router.get('/', (req, res) => {
           model: User,
           attributes: ['id','username']
         },
-        {
-            model: Dog,
-            attributes: ['id', 'dog_name', 'dog_breed', 'user_id']
-        }
+        // {
+        //     model: Dog,
+        //     attributes: ['id', 'dog_name', 'dog_breed', 'user_id']
+        // }
       ]
     })
       .then(dbPostData => res.json(dbPostData))
@@ -50,6 +52,8 @@ router.get('/', (req, res) => {
         'id',
         'image_content',
         'image_url',
+        'dog_name',
+        'dog_breed',
         'created_at'
       ],
       include: [
@@ -85,8 +89,10 @@ router.post('/', (req, res) => {
     Image.create({
       image_content: req.body.image_content,
       image_url: req.body.image_url,
+      dog_name:  req.body.dog_name,
+      dog_breed: req.body.dog_breed,
       user_id: req.session.user_id,
-      dog_id: 1
+      
     })
       .then(dbPostData => res.json(dbPostData))
       .catch(err => {
@@ -99,6 +105,8 @@ router.put('/:id', (req, res) => {
     Image.update({
         image_content: req.body.image_content,
         image_url: req.body.image_url,
+        dog_name:  req.body.dog_name,
+        dog_breed: req.body.dog_breed,
       },
       {
         where: {
