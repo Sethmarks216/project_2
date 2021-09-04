@@ -5,7 +5,7 @@
 
 As dog ownership becomes more prevalent, coupled with the amount of people choosing pets over children, it's a no brainer that a social media app dedicated to sharing the images and stories of our fur friends is needed. With the ability to post about Petunia, brag about Bruiser, and comment about Cleo, this app will allow paw parents to share photos and create lasting memories for their pet and it’s adoring fans online. 
 
-Pupparazzi is a social media application just for dogs! Users are able to create an account, share photos, and comment on posts. In the future, users will be able to like posts, upload videos, and much more.
+Pup-a-razzi is a social media application just for dogs! Users are able to create an account, share photos, and comment on posts. In the future, users will be able to like posts, upload videos, and much more.
 
 ## Table of Contents 
 
