@@ -5,6 +5,7 @@ const imgPreview = document.getElementById('img-preview');
 let fileUpload = document.getElementById('picture');
 
 
+
 async function image(event) {
 
     const file = event.target.files[0];
@@ -22,18 +23,24 @@ async function image(event) {
     }).then(function (res) {
         const image_url = res.data.secure_url
         const image_content = document.getElementById('dog_info').value;
+        const dog_name = document.querySelector('#dog_name').value;
+        const dog_breed = document.querySelector('#breed').value;
 
         fetch(`/api/image`, {
             method: 'POST',
             body: JSON.stringify(
                 {image_content, 
-                    image_url}
+                 image_url,
+                 dog_name,
+                 dog_breed,}
             ),
             headers: {
                 'Content-Type': 'application/json'
             }
-        })
+        }).then(function (res) {
 
+            document.location.replace('/')
+        })
         })
      
 

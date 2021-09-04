@@ -11,6 +11,8 @@ router.get('/', (req, res) => {
           'id',
           'image_content',
           'image_url',
+          'dog_name',
+          'dog_breed',
           'created_at',
         ],
       // Order the posts from most recent to least

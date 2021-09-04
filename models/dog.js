@@ -42,7 +42,7 @@ Dog.init(
     // image_id: {
     //     type: DataTypes.INTEGER,
     //     references: {
-    //       model: 'image',
+    //       model: 'Image',
     //       key: 'id'
     //     }
     //   }
