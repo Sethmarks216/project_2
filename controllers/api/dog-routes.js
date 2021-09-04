@@ -32,7 +32,6 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     db.Dog.create({
-    dog_id: req.body.user_id,
     dog_name: req.body.dog_name,
     dog_breed: req.body.dog_breed,
     user_id: req.session.user_id,
