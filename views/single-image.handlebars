@@ -1,13 +1,19 @@
-<div>
+
+ <div>
+   
   <li class = "puppy_image">
       <img src={{image.image_url}}>
+          
      </img>
         <p>{{image.image_content}} 
       </p>
       </div>
+      
 <p class ="comment-title">Comments</p>
 {{> comments image.comments }}
+
 {{#if loggedIn}}
+
 <form class="comment-form">
   <div>
     <textarea name="comment-body" class="comment-body"></textarea>
@@ -17,10 +23,12 @@
   </div>
 </form>
 {{else}}
-<div class="login-please">
- <a href="/login">You Must Login to Comment!</a>
+<div >
+ <a href="/login" class="login-please">You Must Login to Comment!</a>
 </div>
 {{/if}}
+
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
 {{/if}}
+

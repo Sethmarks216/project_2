@@ -94,7 +94,7 @@ router.post('/', (req, res) => {
       user_id: req.session.user_id,
       
     })
-      .then(dbPostData => res.json(dbPostData))
+      .then(dbImageData => res.json(dbImageData))
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -113,12 +113,12 @@ router.put('/:id', (req, res) => {
           id: req.params.id
         }
       })
-      .then(dbPostData => {
-        if (!dbPostData) {
+      .then(dbImageData => {
+        if (!dbImageData) {
           res.status(404).json({ message: 'No post found with this id' });
           return;
         }
-        res.json(dbPostData);
+        res.json(dbImageData);
       })
       .catch(err => {
         console.log(err);
@@ -132,12 +132,12 @@ router.put('/:id', (req, res) => {
         id: req.params.id
       }
     })
-      .then(dbPostData => {
-        if (!dbPostData) {
+      .then(dbImageData => {
+        if (!dbImageData) {
           res.status(404).json({ message: 'No post found with this id' });
           return;
         }
-        res.json(dbPostData);
+        res.json(dbImageData);
       })
       .catch(err => {
         console.log(err);
