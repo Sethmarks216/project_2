@@ -61,7 +61,7 @@ router.get('/', (req, res) => {
 });
 
 // Render the single image post page
-router.get('/Image/:id', (req, res) => {
+router.get('/image/:id', (req, res) => {
   Image.findOne({
     where: {
       // specify the image id parameter in the query
@@ -72,7 +72,8 @@ router.get('/Image/:id', (req, res) => {
       'id',
       'image_content',
       'image_url',
-      'dog_id',
+      'dog_name',
+      'dog_breed',
       'created_at',
     ],
     include: [
@@ -80,14 +81,14 @@ router.get('/Image/:id', (req, res) => {
         model: User,
         attributes: ['id', 'username']
       },
-      {
-        model: Dog,
-        attributes: ['id', 'dog_name', 'dog_breed', 'user_id'],
-        include: {
-            model: User,
-            attributes: ['id', 'username']
-        }
-      },
+      // {
+      //   model: Dog,
+      //   attributes: ['id', 'dog_name', 'dog_breed', 'user_id'],
+      //   include: {
+      //       model: User,
+      //       attributes: ['id', 'username']
+      //   }
+      // },
       {
         model: Comment,
         attributes: ['id', 'comment_text', 'image_id', 'user_id', 'created_at'],
@@ -109,6 +110,7 @@ router.get('/Image/:id', (req, res) => {
       // pass the posts and a session variable into the single post template
       res.render('single-image', {
           image,
+          // comment_text: dbImageimage_url.comment_text,
           loggedIn: req.session.loggedIn
         });
     })

@@ -1,0 +1,35 @@
+
+ <div>
+   
+  <li class = "puppy_image">
+      <img src={{image.image_url}}>
+          
+     </img>
+        <p>{{image.image_content}} 
+      </p>
+      </div>
+      
+<p class ="comment-title">Comments</p>
+{{> comments image.comments }}
+
+{{#if loggedIn}}
+
+<form class="comment-form">
+  <div>
+    <textarea name="comment-body" class="comment-body"></textarea>
+  </div>
+
+  <div>
+    <button type="submit" id= "Add_Comment">Add Comment</button>
+  </div>
+</form>
+{{else}}
+<div >
+ <a href="/login" class="login-please">You Must Login to Comment!</a>
+</div>
+{{/if}}
+
+{{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+{{/if}}
+
