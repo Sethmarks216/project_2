@@ -34,7 +34,8 @@ router.post('/', (req, res) => {
     db.Dog.create({
     dog_name: req.body.dog_name,
     dog_breed: req.body.dog_breed,
-    user_id: req.session.user_id
+    user_id: req.session.user_id,
+    dog_id: req.session.dog_id
   })
     .then(dbDog => {
         db.User.update({dogId: dbDog.id}, {

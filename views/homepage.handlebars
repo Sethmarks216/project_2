@@ -9,17 +9,23 @@
 {{/if}}
 
   {{#each images as |image|}}
+  <div>
+   <a href="posts/{{id}}"
   <li class = "puppy_image">
       <img src={{image_url}}>
-          
+          </a>
      </img>
-     <p class = "name">Name: {{dog.dog_name}} </p>
+        <p>{{image_content}} 
+      </p>
+     
+     <p class = "name">Name: {{dog_name}} <br>
 
-     <p>
-       Breed: {{dog.dog_breed}}
+       Breed: {{dog_breed}}<br>
+       
+       Owner: {{user.username}}
      </p>
 
-       {{image_content}}</p>
+    </div>  
     {{!-- {{> post-info post }} --}}
   </li>
   {{/each}}

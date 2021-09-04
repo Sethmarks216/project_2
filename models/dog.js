@@ -38,7 +38,14 @@ Dog.init(
           model: 'user',
           key: 'id'
         }
-      }
+      },
+    // image_id: {
+    //     type: DataTypes.INTEGER,
+    //     references: {
+    //       model: 'Image',
+    //       key: 'id'
+    //     }
+    //   }
     // define columns
   },
   {
