@@ -1,0 +1,12 @@
+  {{#each images as |image|}}
+  <li class = "puppy_image">
+        <img src={{image_url}}></img>
+        <p class="name">Name: {{dog.dog_name}} </p>
+        <p>Breed: {{dog.dog_breed}}</p>
+        <p> {{image_content}} </p>
+
+        <p> {{comments}} </p>
+
+  </li>
+  
+  {{/each}}

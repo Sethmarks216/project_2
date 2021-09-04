@@ -107,6 +107,7 @@ router.get('/image/:id', (req, res) => {
       }
       // serialize the post image_url, removing extra sequelize meta image_url
       const image = dbImageimage_url.get({ plain: true });
+      console.log(image)
       // pass the posts and a session variable into the single post template
       res.render('single-image', {
           image,
